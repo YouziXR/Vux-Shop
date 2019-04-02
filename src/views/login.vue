@@ -31,12 +31,17 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+    h2{
+        margin: 10% 0 10% 5%;
+    }
     .login-form{
-        width: 95%;
+        margin: auto;
+    }
+    .login-group{
+        width: 90%;
         border-radius: 10px;
         margin: auto;
         margin-top: 50%;
-
     }
     .login-icon{
         margin-right: 10px;

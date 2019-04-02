@@ -7,10 +7,12 @@ import Login from '@/views/login'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
+  base: '/login/',
   routes: [
     /* {
       path: '/',
-      name: 'HelloWorld',5
+      name: 'HelloWorld',
       component: HelloWorld
     },
     {
@@ -19,7 +21,7 @@ export default new Router({
       component: VuxHello
     } */
     {
-      path: '/login',
+      path: '/',
       name: 'login',
       component: Login
     }

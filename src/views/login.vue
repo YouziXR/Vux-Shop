@@ -38,16 +38,7 @@ export default {
       userPwd: ""
     };
   },
-  computed: {
-    userID: {
-      get() {
-        return this.$store.state.user.userID
-      },
-      set(val) {
-        this.$store.commit('user/setUserID', val)
-      }
-    }
-  },
+  
   methods: {
     forgetPwd() {
       this.$router.push({name: 'forgetPwd'})

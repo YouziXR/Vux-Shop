@@ -6,11 +6,13 @@ import Login from '@/views/login'
 import ForgetPwd from '@/views/forget'
 import Register from '@/views/register'
 import Home from '@/views/home'
+import Me from '@/views/me'
+import Tab from '@/views/tabbar'
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  base: '/login/',
+  base: '/',
   routes: [
     /* {
       path: '/',
@@ -24,6 +26,11 @@ export default new Router({
     } */
     {
       path: '/',
+      name: 'root',
+      redirect: { name: 'login' }
+    },
+    {
+      path: '/login',
       name: 'login',
       component: Login
     },
@@ -38,9 +45,22 @@ export default new Router({
       component: Register
     },
     {
-      path: '/home',
-      name: 'home',
-      component: Home
-    }
+      path: '/tab',
+      name: 'tab',
+      component: Tab,
+      redirect: { name: 'home' },
+      children: [
+        {
+          path: 'home',
+          name: 'home',
+          component: Home
+        },
+        {
+          path: 'me',
+          name: 'me',
+          component: Me
+        }
+      ]
+    },
   ]
 })

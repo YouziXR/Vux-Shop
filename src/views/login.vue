@@ -38,19 +38,19 @@ export default {
       userPwd: ""
     };
   },
-  
+
   methods: {
     forgetPwd() {
-      this.$router.push({name: 'forgetPwd'})
+      this.$router.push({ name: "forgetPwd" });
     },
     register() {
-      this.$router.push({name: 'register'})
+      this.$router.push({ name: "register" });
     },
     login() {
       /* 
         登录逻辑写在这里。
        */
-      this.$router.push({name: 'home'})
+      this.$router.push({ name: "tab" });
     }
   }
 };
@@ -76,7 +76,8 @@ h2 {
   margin-top: 5%;
   margin-bottom: 10%;
 }
-.forgetPwd, .register {
+.forgetPwd,
+.register {
   color: @colorLink;
   text-decoration: underline;
   margin-top: 5%;

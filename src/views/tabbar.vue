@@ -1,13 +1,15 @@
 <template>
   <div>
-    <router-view></router-view>
+    <router-view keep-alive></router-view>
     <tabbar style="position: fixed;" slot="bottom">
-      <tabbar-item :link="{name: 'home'}" :selected="selected == 'home'">
+      <!-- <tabbar-item selected :link="{name: 'home'}"> -->
+      <tabbar-item :selected="selected === 'home'" :link="{name: 'home'}">
         <img src="../assets/home page.png" slot="icon">
         <img src="../assets/home page fill.png" slot="icon-active">
         <span slot="label">首页</span>
       </tabbar-item>
-      <tabbar-item :link="{name: 'me'}" :selected="selected == 'me'">
+      <!-- <tabbar-item :selected="$route.name === 'me'" :link="{name: 'me'}"> -->
+      <tabbar-item :selected="selected === 'me'" :link="{name: 'me'}">
         <img src="../assets/mine.png" slot="icon">
         <img src="../assets/mine fill.png" slot="icon-active">
         <span slot="label">我</span>
@@ -22,7 +24,7 @@ import { Tabbar, TabbarItem } from "vux";
 export default {
   data() {
     return {
-      selected: "home"
+      // selected: "home"
     };
   },
   components: {
@@ -40,15 +42,19 @@ export default {
     this.getUser();
   },
   mounted() {
-    let to = this.$route.name;
+    /* let to = this.$route.name;
     if (to == "home") {
       this.selected = "home";
     } else if (to == "me") {
       this.selected = "me";
-    }
+    } */
   },
   watch: {},
   computed: {
+    selected: function() {
+      let name = this.$route.name;
+      return name;
+    },
     userID: {
       get() {
         return this.$store.state.user.userID;

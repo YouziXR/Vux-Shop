@@ -16,8 +16,10 @@
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAcVJREFUSA3tlrtKA0EUhtcLUbwgiiLeSaEiYmGtTyAGeztfy85CK+0sfAI7UbGwUYgRvBBEURHEC35/MhMmMTu74iZpcuDLZOdc/p2zs5MEQYOs5Y+6aeIXYQp64B3ycA5H8AGxLK5wJ9XWYM5T9QXfLlx5YkquOMIpojdgBL7gEC7hDnphDJZhEL5hG+T3WpvXW3SuMkzDI2zBGTzBJ7yBbuAY1PpRmDXX3rZHCQ9RJAOyHbgpfPv9oZVegG6wH9RJ76pbCfDZPE4V0SqvfYH49BgOTMwCo/JCLUpYrZPlikPkpzqiG9CzV+tDLUq422Teh1Yod+i5P5gpm1seYa6ihK1fq4hrNtbmVs3zOqtmJDTZMOH2igXo9RoGbQ5ZR3EIJhntnJkKHSpz9D7rXdc7XzJ3y/cxuw4STtq06fbhxBZ2V7zCpER15t6aAO3MLsib6zhDZY7yxyEDWdCpF7jCaU1gmyDxJE2dnIEJKAi7mytllJIWVVlb0z7/wBU2uvUZmsL16TMqzVY3W12zDrib69Wo6GhL0uxZrZr2BCs7q09xLIHO1VrYM0WztrD79zbHpK4HwJ7bNu4/o34Ss7AHEm+s/QDiqUU2/mZNXgAAAABJRU5ErkJggg=="
         >
       </x-input>
-      <p class="forgetPwd" @click="forgetPwd">忘记密码</p>
-      <p class="register" @click="register">立即注册</p>
+      <div>
+        <span class="register" @click="register">立即注册</span>
+        <span class="forgetPwd" @click="forgetPwd">忘记密码</span>
+      </div>
       <x-button type="primary" class="login-btn" @click.native="login">登录</x-button>
     </group>
   </div>
@@ -57,6 +59,7 @@ export default {
 </script>
 <style lang="less" scoped>
 @colorLink: rgba(25, 173, 25, 0.603);
+@linkMargin: 15px;
 h2 {
   margin: 10% 0 10% 5%;
 }
@@ -80,12 +83,12 @@ h2 {
 .register {
   color: @colorLink;
   text-decoration: underline;
-  margin-top: 5%;
 }
 .forgetPwd {
-  text-align: right;
+  float: right;
+  margin-right: @linkMargin;
 }
 .register {
-  text-align: center;
+  margin-left: @linkMargin;
 }
 </style>

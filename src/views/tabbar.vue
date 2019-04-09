@@ -32,6 +32,7 @@ export default {
     TabbarItem
   },
   methods: {
+    // 获取用户信息，包括账号姓名等基本信息
     getUser() {
       /* 
         获取用户信息的逻辑写在这里

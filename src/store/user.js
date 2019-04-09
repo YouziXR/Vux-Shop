@@ -1,10 +1,10 @@
 // state
-const state = {
-    userID: ''
+let state = {
+    userID: 'unknown'
 }
 
 // mutations
-const mutations = {
+let mutations = {
     setUserID(state, id) {
         state.userID = id
     }

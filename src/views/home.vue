@@ -18,6 +18,7 @@
         <b>{{orderTimes}}</b>
       </p>
       <p class="activate-order">开始接单</p>
+      <img src="/src/assets/homes-line.png">
     </group>
   </div>
 </template>

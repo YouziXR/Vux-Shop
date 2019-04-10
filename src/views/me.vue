@@ -11,12 +11,12 @@
         <div>
           <span>￥{{userInfo.rewardToday}}</span>
           <br>
-          <span class="caption">当日赏金</span>
+          <span class="caption">今日赏金</span>
         </div>
       </div>
     </card>
     <card>
-      <swiper slot="content" auto loop height="5em" :interval="6000">
+      <swiper slot="content" auto loop height="8em" :interval="6000" dots-position="center">
         <swiper-item
           v-for="(value, key, index) in memberPointLevel"
           :key="index"
@@ -28,14 +28,48 @@
             <span style="color: blueviolet;">{{value}}</span>
             积分即可升级
           </span>
+          <flow>
+            <flow-state title="0" is-done></flow-state>
+            <flow-line tip="进行中" :process-span="userInfo.memberPoint * 100 / value"></flow-line>
+            <flow-state :title="value.toString()"></flow-state>
+          </flow>
         </swiper-item>
       </swiper>
+    </card>
+    <card>
+      <div slot="content" class="img-btn-container">
+        <img src="/src/assets/money-guan.png" @click="routeToReward" class="imgBtn">
+        <img src="/src/assets/task-view.png" @click="routeToTask" class="imgBtn">
+      </div>
+    </card>
+    <card>
+      <div slot="content" class="nav-section">
+        <div>
+          <img src="/src/assets/setting.png">
+          <br>
+          <span>个人资料</span>
+        </div>
+        <div>
+          <img src="/src/assets/message.png">
+          <br>
+          <span>消息</span>
+        </div>
+      </div>
     </card>
   </div>
 </template>
 
 <script>
-import { Card, Swiper, SwiperItem } from "vux";
+import {
+  Card,
+  Swiper,
+  SwiperItem,
+  Flow,
+  FlowState,
+  FlowLine,
+  Tabbar,
+  TabbarItem
+} from "vux";
 export default {
   data() {
     return {
@@ -56,7 +90,10 @@ export default {
   components: {
     Card,
     Swiper,
-    SwiperItem
+    SwiperItem,
+    Flow,
+    FlowState,
+    FlowLine
   },
   created() {
     this.getUserInfo();
@@ -65,6 +102,13 @@ export default {
     // 获取用户的信息，包括不限于一堆账户信息，佣金等
     getUserInfo() {
       // 获取逻辑写在这里
+    },
+    // 路由导航到赏金管理页面
+    routeToReward() {
+      this.$router.push({ name: "reward" });
+    },
+    routeToTask() {
+      this.$router.push({ name: "task-view" });
     }
   },
   computed: {
@@ -110,5 +154,30 @@ export default {
   padding: 1%;
   border-radius: 5%;
   font-size: 0.8em;
+}
+.img-btn-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.imgBtn {
+  margin: 3% 0;
+  height: 5em;
+}
+.nav-section {
+  @navImgSize: 2.5em;
+  display: flex;
+  justify-content: space-evenly;
+  div {
+    margin: 3% 0;
+    font-size: 1em;
+    text-align: center;
+    img {
+      width: @navImgSize;
+      height: @navImgSize;
+      margin-bottom: -0.3em;
+    }
+    span {
+    }
+  }
 }
 </style>

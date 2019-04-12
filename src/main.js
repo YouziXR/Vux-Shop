@@ -7,10 +7,11 @@ import App from './App'
 // import Home from './components/HelloFromVux'
 import router from './router/index'
 import store from './store/index'
-import { ToastPlugin, LoadingPlugin } from 'vux'
+import { ToastPlugin, LoadingPlugin} from 'vux'
 
 Vue.use(ToastPlugin)
 Vue.use(LoadingPlugin)
+// Vue.use(XHeader)
 /* Vue.use(VueRouter)
 
 const routes = [{

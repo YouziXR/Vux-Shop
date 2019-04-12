@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <x-header>header</x-header>
     <div class="swiper">
       <masker :opacity="0">
         <swiper :list="img_list" auto loop></swiper>
@@ -17,16 +18,24 @@
         剩余接单次数：
         <b>{{orderTimes}}</b>
       </p>
-      <p class="activate-order">开始接单</p>
+      <p class="activate-order" @click="getOrders" ref="getOrders">{{startGetOrder}}</p>
       <img src="/src/assets/homes-line.png">
     </group>
   </div>
 </template>
 <script>
-import { Swiper, Masker, Group, Cell, dateFormat } from "vux";
+import { Swiper, Masker, Group, Cell, dateFormat, XHeader } from "vux";
 export default {
+  components: {
+    Swiper,
+    Masker,
+    Group,
+    Cell,
+    XHeader
+  },
   data() {
     return {
+      startGetOrder: "开始接单",
       dateNow: dateFormat(new Date(), "YYYY-MM-DD"),
       img_list: [
         {
@@ -50,15 +59,15 @@ export default {
     // 获取剩余的接单次数
     getOrderTimes: function() {
       // 取得接单次数的逻辑写在这里
+    },
+    // 开始接单
+    getOrders: function() {
+      // 接单逻辑
+      this.startGetOrder = "等待分配";
+      console.log("开始接单，等待分配");
     }
   },
-  computed: {},
-  components: {
-    Swiper,
-    Masker,
-    Group,
-    Cell
-  }
+  computed: {}
 };
 </script>
 <style lang="less">

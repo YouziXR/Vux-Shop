@@ -22,14 +22,14 @@
 import { Tabbar, TabbarItem } from "vux";
 
 export default {
+  components: {
+    Tabbar,
+    TabbarItem
+  },
   data() {
     return {
       // selected: "home"
     };
-  },
-  components: {
-    Tabbar,
-    TabbarItem
   },
   methods: {
     // 获取用户信息，包括账号姓名等基本信息

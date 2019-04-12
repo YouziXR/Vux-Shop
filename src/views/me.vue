@@ -1,5 +1,6 @@
 <template>
   <div>
+    <x-header>header</x-header>
     <card>
       <div slot="header" class="vux-1px-b card-header">{{userID}}</div>
       <div slot="content" class="card-content">
@@ -44,7 +45,7 @@
     </card>
     <card>
       <div slot="content" class="nav-section">
-        <div>
+        <div @click="$router.push({name: 'profile'})">
           <img src="/src/assets/setting.png">
           <br>
           <span>个人资料</span>
@@ -68,9 +69,19 @@ import {
   FlowState,
   FlowLine,
   Tabbar,
-  TabbarItem
+  TabbarItem,
+  XHeader
 } from "vux";
 export default {
+  components: {
+    Card,
+    Swiper,
+    SwiperItem,
+    Flow,
+    FlowState,
+    FlowLine,
+    XHeader
+  },
   data() {
     return {
       userInfo: {
@@ -86,14 +97,6 @@ export default {
         member4th: 99999
       }
     };
-  },
-  components: {
-    Card,
-    Swiper,
-    SwiperItem,
-    Flow,
-    FlowState,
-    FlowLine
   },
   created() {
     this.getUserInfo();

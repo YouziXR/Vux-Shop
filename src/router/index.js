@@ -8,6 +8,8 @@ import Register from '@/views/register'
 import Home from '@/views/home'
 import Me from '@/views/me'
 import Tab from '@/views/tabbar'
+import Profile from '@/views/profile'
+import TaskView from '@/views/task-view'
 Vue.use(Router)
 
 export default new Router({
@@ -62,5 +64,15 @@ export default new Router({
         }
       ]
     },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile
+    },
+    {
+      path: '/task-view',
+      name: 'task-view',
+      component: TaskView
+    }
   ]
 })

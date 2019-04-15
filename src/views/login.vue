@@ -2,7 +2,7 @@
   <div class="login-form">
     <x-header>header</x-header>
     <!-- <img src="/src/assets/bg-img.png" style="margin-top: -10%;"> -->
-    <group label-align="right" class="login-group">
+    <group label-align="right" class="login-group" gutter="50%">
       <h2>用户登录</h2>
       <x-input placeholder="用户账号" v-model="userAccount" :required="true">
         <img
@@ -60,7 +60,7 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
+<style lang="less">
 @colorLink: rgba(25, 173, 25, 0.603);
 @linkMargin: 15px;
 /* html,
@@ -71,14 +71,19 @@ h2 {
   margin: 10% 0 10% 5%;
 }
 .login-form {
-  // height: 100%;
+  height: 100%;
+  background-image: url("/src/assets/bg-login-1.jpg");
+  background-size: cover;
 }
 .login-group {
-  // width: 90%;
+  width: 80%;
   // background-image: url("/src/assets/bg-img.png");
   margin: auto;
-  margin-top: 30%;
+  // margin-top: 30%;
   // padding: 10px;
+}
+.weui-cells {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .login-icon {
   margin-right: 10px;
